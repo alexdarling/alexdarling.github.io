@@ -17,37 +17,35 @@
         <h1>Converting Video Captions to text files</h1>
         <p>Websites that offer captioning services like Wistia will give you captions as an SRT file. You can open SRT files in a text editor, but if you want to turn those SRT files into a block of text you will be stuck with something that looks like this:</p>
 
-        <code>
-          1
-          00:00:01,500 --> 00:00:03,750
-          The Tale of Sir Robin
+        <div class="codeDiv">
+            1<br>
+            00:00:01,500 --> 00:00:03,750<br>
+            The Tale of Sir Robin<br>
 
-          2
-          00:00:05,000 --> 00:00:07,750
-          So each of the knights 
-          went their separate ways.
+            2<br>
+            00:00:05,000 --> 00:00:07,750<br>
+            So each of the knights<br>
+            went their separate ways.<br>
 
-          3
-          00:00:08,100 --> 00:00:10,750
-          Sir Robin rode north,
-          through the dark forest of Ewing...
+            3<br>
+            00:00:08,100 --> 00:00:10,750<br>
+            Sir Robin rode north,<br>
+            through the dark forest of Ewing...<br>
 
-        </code>
+        </div>
 
         <p>And so on. Someone could technically read that, but it's an awful user experience and I'd be surprised if it didn't confuse search engines. If we could get it to display like this instead:</p>
 
-        <code>
-          The Tale of Sir Robin.
+        <div class="codeDiv">
+            The Tale of Sir Robin.
 
-          So each of the knights went their separate ways. Sir Robin rode north, through the dark forest of Ewing...
-        </code>
+            So each of the knights went their separate ways. Sir Robin rode north, through the dark forest of Ewing...
+        </div>
 
         <p>That would be a lot more useful.</p>
         <strong>Paste the raw SRT text here</strong>
         <textarea id="rawSRT"></textarea>
         <input type="button" />
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
     </div>
     <script src="javascripts/scale.fix.js"></script>
     
