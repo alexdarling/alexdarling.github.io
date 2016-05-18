@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Alexdarling.GitHub.io by alexdarling</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Converting Video Captions to text files</h1>
+        <p>Websites that offer captioning services like Wistia will give you captions as an SRT file. You can open SRT files in a text editor, but if you want to turn those SRT files into a block of text you will be stuck with something that looks like this:</p>
+
+        <div style="font-family:monospace; background-color: #DDDDDD">
+          1
+          00:00:01,500 --> 00:00:03,750
+          The Tale of Sir Robin
+
+          2
+          00:00:05,000 --> 00:00:07,750
+          So each of the knights 
+          went their separate ways.
+
+          3
+          00:00:08,100 --> 00:00:10,750
+          Sir Robin rode north,
+          through the dark forest of Ewing...
+
+        </div>
+
+        And so on. Someone could technically read that, but it's an awful user experience and I'd be surprised if it didn't confuse search engines. If we could get it to display like this instead:
+
+        <div style="font-family:monospace; background-color: #DDDDDD">
+          The Tale of Sir Robin.
+
+          So each of the knights went their separate ways. Sir Robin rode north, through the dark forest of Ewing...
+        </div>
+
+        That would be ideal.
+      </header>
+      <section>
+        <strong>Paste the raw SRT text here</strong>
+        <textarea id="rawSRT" />
+        <input type="button" />
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
