@@ -17,7 +17,7 @@
         <h1>Converting Video Captions to text files</h1>
         <p>Websites that offer captioning services like Wistia will give you captions as an SRT file. You can open SRT files in a text editor, but if you want to turn those SRT files into a block of text you will be stuck with something that looks like this:</p>
 
-        <div style="font-family:monospace; background-color: #DDDDDD">
+        <code>
           1
           00:00:01,500 --> 00:00:03,750
           The Tale of Sir Robin
@@ -32,17 +32,17 @@
           Sir Robin rode north,
           through the dark forest of Ewing...
 
-        </div>
+        </code>
 
-        And so on. Someone could technically read that, but it's an awful user experience and I'd be surprised if it didn't confuse search engines. If we could get it to display like this instead:
+        <p>And so on. Someone could technically read that, but it's an awful user experience and I'd be surprised if it didn't confuse search engines. If we could get it to display like this instead:</p>
 
-        <div style="font-family:monospace; background-color: #DDDDDD">
+        <code>
           The Tale of Sir Robin.
 
           So each of the knights went their separate ways. Sir Robin rode north, through the dark forest of Ewing...
-        </div>
+        </code>
 
-        That would be ideal.
+        <p>That would be a lot more useful.</p>
         <strong>Paste the raw SRT text here</strong>
         <textarea id="rawSRT"></textarea>
         <input type="button" />
