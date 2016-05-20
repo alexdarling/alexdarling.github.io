@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width">
+    <!--TODO: Consolidate special styling into a CSS file.-->
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
     <div class="wrapper">
-        <h1>Converting Video Captions to text files</h1>
-        <p><strong>Paste the raw SRT text here</strong></p>
-        <textarea style="height:10em;width:100%;" value="Convert" id="rawSRT"></textarea>
-        <input type="button" value="Convert to Text"/>
+        <h1>Converting Video Captions (SubRip files) to text files</h1>
+        <p><strong>Paste the raw SubRIP (SRT) text here</strong></p>
+        <textarea style="height:10em;width:100%;" id="sRTTextArea"></textarea>
+        <p style="border:solid 3px red; color:red; font-weight:bold;" hidden="hidden" id="errorMessage"></p>
+        <input style="margin-bottom:2%;" type="button" value="Convert to Text" id="sRTButton"/>
 
         <h2>What is this tool used for?</h2>
-        <p>Websites that offer captioning services like Wistia will give you captions as an SRT file. You can open SRT files in a text editor, but if you want to turn those SRT files into a block of text you will be stuck with something that looks like this:</p>
+        <p>Websites that offer captioning services like Wistia will give you captions as a SubRip file (with the *.srt extension). You can open SubRip files in a text editor, but if you want to turn those into a block of text you will be stuck with something that looks like this:</p>
 
         <div class="codeDiv">
             1<br>
@@ -49,7 +51,7 @@
 
         <p>That would be a lot more useful.</p>
     </div>
+    <script src="javascripts/srtToText.js"></script>
     <script src="javascripts/scale.fix.js"></script>
-    
   </body>
 </html>
