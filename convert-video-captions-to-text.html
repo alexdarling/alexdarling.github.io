@@ -15,13 +15,24 @@
   </head>
   <body>
     <div class="wrapper">
-        <h1>Converting Video Captions (SubRip files) to text files</h1>
+        <h1>Converting Video Captions to Text</h1>
         <p><strong>Paste the raw SubRIP (SRT) text here</strong></p>
         <textarea style="height:10em;width:100%;" id="sRTTextArea"></textarea>
         <p style="border:solid 3px red; color:red; font-weight:bold;" hidden="hidden" id="errorMessage"></p>
-        <input style="margin-bottom:2%;" type="button" value="Convert to Text" id="sRTButton"/>
+        <div style="margin-top:1em;">
+            <input type="button" style="margin-right: 1em; margin-bottom; 2em;" value="Convert to Text" id="sRTButton"/>
+            <input type="button" style="margin-right: 1em;" value="Reset" id="resetButton"/>
+            <label for="makeTitleCheckbox">
+                    <input type="checkbox" id="makeTitleCheckbox"/> Make the first line a title.
+            </label>
+        </div>
 
-        <h2>What is this tool used for?</h2>
+        <div class="codeDiv" id="outputArea">The converted transcript will appear here.</div>
+
+        <h2 style="Margin-top: 2em";>How to use this tool</h2>
+        Open your SubRip file in a text editor of choice. Copy the SubRip file into the text area above and click "Convert to Text". If you want the first line to be a title (like in the example below), check the box.
+
+        <h2 style="margin-top: 2em;">What is this tool used for?</h2>
         <p>Websites that offer captioning services like Wistia will give you captions as a SubRip file (with the *.srt extension). You can open SubRip files in a text editor, but if you want to turn those into a block of text you will be stuck with something that looks like this:</p>
 
         <div class="codeDiv">
