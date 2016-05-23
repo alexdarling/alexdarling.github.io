@@ -19,7 +19,15 @@
         <p><strong>Paste the raw SubRIP (SRT) text here</strong></p>
         <textarea style="height:10em;width:100%;" id="sRTTextArea"></textarea>
         <p style="border:solid 3px red; color:red; font-weight:bold;" hidden="hidden" id="errorMessage"></p>
-        <input style="margin-bottom:2%;" type="button" value="Convert to Text" id="sRTButton"/>
+        <div style="margin-top:1em;">
+            <input type="button" style="margin-right: 1em; margin-bottom; 2em;" value="Convert to Text" id="sRTButton"/>
+            <input type="button" style="margin-right: 1em;" value="Reset" id="resetButton"/>
+            <label for="makeTitleCheckbox">
+                    <input type="checkbox" id="makeTitleCheckbox"/> Make the first line a title.
+            </label>
+        </div>
+
+        <div class="codeDiv" id="outputArea">The converted transcript will appear here.</div>
 
         <h2>What is this tool used for?</h2>
         <p>Websites that offer captioning services like Wistia will give you captions as a SubRip file (with the *.srt extension). You can open SubRip files in a text editor, but if you want to turn those into a block of text you will be stuck with something that looks like this:</p>

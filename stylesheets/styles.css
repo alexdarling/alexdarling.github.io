@@ -125,6 +125,14 @@ code, pre {
   font-size:12px;
 }
 
+#outputArea {
+  white-space: pre-line;
+}
+
+#sRTButton {
+  margin-bottom: 1em;
+}
+
 .codeDiv {
   background-color: #DDDDDD;
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
