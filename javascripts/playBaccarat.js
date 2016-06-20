@@ -10,6 +10,7 @@ function Card(image) {
 function draw() {
 	hand.push(deck.pop());
 	displayHand();
+	displayDeck();
 }
 
 // Thank you StackOverflow
@@ -34,7 +35,16 @@ function displayHand() {
 	}
 }
 
+function displayDeck() {
+	deckHTML = document.getElementById('deck');
+	deckHTML.innerHTML = deck.length;
+}
+
 function setUpGameState() {
+	// Adding the character card.
+	heroCard = document.getElementById('heroCard');
+	heroCard.src = 'baccarat-cards/baccarat-char-front.jpg';
+
 	// Creating the deck list so we can populate the deck.
 	decklist = new Array();
 	decklist['ace-of-saints'] = 2;
