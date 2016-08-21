@@ -58,33 +58,92 @@ function displayDeck() {
 	deckHTML.innerHTML = deck.length;
 }
 
-function displayDeckContextMenu() {
-	deckContextMenu = document.getElementById('deckContextMenu');
+function initializeDeckContextMenu() {
+	deckDraw = document.getElementById('deckDraw');
+	deckReveal = document.getElementById('deckReveal');
+	deckMill = document.getElementById('deckMill');
 	deckContainer = document.getElementById('deckContainer');
-	rect = deckContainer.getBoundingClientRect();
-	deckContextMenu.style.top = rect.bottom + 'px';
-	deckContextMenu.style.left = rect.left  +'px';
-	deckContextMenu.style.visibility = 'visible';
-	deckContainer.removeEventListener('click', displayDeckContextMenu);
 	deckContainer.addEventListener('click', function() {
+		displayDeckContextMenu(event);
+	});
+	deckReveal.addEventListener('click', deckRevealInter);
+	deckMill.addEventListener('click', deckMillInter);
+	deckDraw.addEventListener('click', function () {
+		draw();
 		deckContextMenu.style.visibility = 'hidden';
 		deckContainer.addEventListener('click', displayDeckContextMenu);
 	});
 }
 
-function displayTrashContextMenu() {
-	// TODO:
-	// 1. Look inside
-	// dldldldldldld
+function displayDeckContextMenu(e) {
+	deckContextMenu = document.getElementById('deckContextMenu');
+	deckContextMenu.style.top = e.clientY + 'px';
+	deckContextMenu.style.left = e.clientX + 5 + 'px';
+	deckContextMenu.style.visibility = 'visible';
+	deckContainer.removeEventListener('click', displayDeckContextMenu);
+	deckContainer.addEventListener('click', function() {
+		deckContextMenu.style.visibility = 'hidden';
+		deckContainer.addEventListener('click', function() {
+			displayDeckContextMenu(event);
+		});
+	});
 }
 
-function displayHPContextMenu() {
-	// TODO:
-	// 1. Gain HP
-	// 2. Lose HP
+function initializeTrashContextMenu() {
+	trashLook = document.getElementById('trashLook');
+	trashShuffle = document.getElementById('trashShuffle');
+	trashDuplicates = document.getElementById('trashDuplicates');
+	trashContainer = document.getElementById('trashContainer');
+	trashContainer.addEventListener('click', function() {
+		displayTrashContextMenu(event);
+	});
+	trashLook.addEventListener('click', trashLookInter);
+	trashShuffle.addEventListener('click', trashShuffleInter);
+	trashDuplicates.addEventListener('click', trashDuplicatesInter);
 }
 
-function deckRevealOps() {
+function displayTrashContextMenu(e) {
+	trashContextMenu = document.getElementById('trashContextMenu');
+	trashContextMenu.style.top = e.clientY + 'px';
+	trashContextMenu.style.left = e.clientX + 5 + 'px';
+	trashContextMenu.style.visibility = 'visible';
+	trashContextMenu.removeEventListener('click', displayTrashContextMenu);
+	trashContainer.addEventListener('click', function() {
+		trashContextMenu.style.visibility = 'hidden';
+		trashContainer.addEventListener('click', function() {
+			displayTrashContextMenu(event);
+		});
+	});
+}
+
+function initializeHPContextMenu() {
+	hpGain = document.getElementById('hpGain');
+	hpLoss = document.getElementById('hpLoss');
+	hpSet = document.getElementById('hpSet');
+	hpContainer = document.getElementById('hpContainer');
+	hpContainer.addEventListener('click', function() {
+		displayHPContextMenu(event);
+	});
+	hpGain.addEventListener('click', hpGainInter);
+	hpLoss.addEventListener('click', hpLossInter);
+	hpSet.addEventListener('click', hpSetInter);
+}
+
+function displayHPContextMenu(e) {
+	hpContextMenu = document.getElementById('hpContextMenu');
+	hpContextMenu.style.top = e.clientY + 'px';
+	hpContextMenu.style.left = e.clientX + 5 + 'px';
+	hpContextMenu.style.visibility = 'visible';
+	hpContextMenu.removeEventListener('click', displayHPContextMenu);
+	hpContainer.addEventListener('click', function() {
+		hpContextMenu.style.visibility = 'hidden';
+		hpContainer.addEventListener('click', function() {
+			displayHPContextMenu(event);
+		});
+	});
+}
+
+function deckRevealInter() {
 	opaque();
 	document.getElementById('closeNumCards').addEventListener('click', function () {
 		document.getElementById('revealTopDeck').style.visibility = 'hidden';
@@ -124,38 +183,27 @@ function deckRevealOps() {
 	});
 }
 
-function deckMillOps() {
+function deckMillInter() {
 	//
 }
+
+function trashLookInter() {}
+function trashShuffleInter() {}
+function trashDuplicatesInter() {}
+function hpGainInter() {}
+function hpLossInter() {}
+function hpSetInter() {}
 
 function setUpGameState() {
 	// Adding the character card.
 	heroCard = document.getElementById('heroCard');
 	heroCard.src = 'baccarat-cards/baccarat-char-front.jpg';
 
-	// TODO: Add stack listener
+	// TODO: Add stack functionality
 
-	// Deck Context Menu Listeners
-	deckContainer = document.getElementById('deckContainer');
-	deckDraw = document.getElementById('deckDraw');
-	deckReveal = document.getElementById('deckReveal');
-	deckMill = document.getElementById('deckMill');
-	deckContainer.addEventListener('click', displayDeckContextMenu);
-	deckDraw.addEventListener('click', function () {
-		draw();
-		deckContextMenu.style.visibility = 'hidden';
-		deckContainer.addEventListener('click', displayDeckContextMenu);
-	});
-	deckReveal.addEventListener('click', deckRevealOps);
-	deckMill.addEventListener('click', deckMillOps);
-
-	// Trash Context Menu Listeners
-	trashContainer = document.getElementById('trashContainer');
-	trashContainer.addEventListener('click', displayTrashContextMenu);
-
-	// HP Context Menu Listeners
-	hpContainer = document.getElementById('hpContainer');
-	hpContainer.addEventListener('click', displayHPContextMenu);
+	initializeDeckContextMenu();
+	initializeTrashContextMenu();
+	initializeHPContextMenu();
 
 	// Creating the deck list so we can populate the deck.
 	decklist = new Array();
