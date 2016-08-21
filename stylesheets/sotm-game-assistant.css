@@ -1,0 +1,181 @@
+h1, h2, p, body, #heroCard {
+	margin: 0px;
+	padding: 0px;
+}
+
+#personalBoardState {
+	position: absolute;
+	top: 0px;
+	height: 55%;
+	width: 100%;
+}
+
+#hand {
+	height: 45%;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	border-top: 2px solid black;
+	text-align: center;
+}
+
+.handCards {
+	height: 90%;
+	padding-left: 5px;
+	padding-right: 5px;
+	position: relative;
+	top: 5%;
+}
+
+#heroCard, #gameMetrics, #stack, #aces{
+	float: left;
+	height: 100%;
+	margin-right: 1%;
+}
+
+#gameMetrics p {
+	padding: 0px;
+	margin: 0px;
+	display: inline-table;
+	line-height: 0.9;
+}
+
+#hpContainer, #deckContainer, #trashContainer{
+	position: relative;
+}
+
+#numCards {
+	margin-bottom: 5%;
+	width: 3em;
+}
+
+#interstitialVeil {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
+.interstitial {
+	visibility: hidden;
+	position: absolute;
+	overflow: inherit;
+	width: 100%;
+	top: 25%;
+	height: 450px;
+	border: 3px solid #646464;
+	background-color: white;
+	text-align: center;
+	z-index: 3;
+}
+
+.interstitial h2 {
+	margin: 10px;
+}
+
+#cIContent {
+	height: 70%;
+}
+
+.notation {
+	height: 100%;
+	display: inline-block;
+}
+
+#cIContent img {
+	height: 100%;
+}
+
+#closeInterstitial {
+	font-size: 1.5em;
+	margin: 7px;
+}
+
+#cIContent {
+	padding-bottom: 5px;
+	margin-bottom: 25px;
+}
+
+#numberSelection {
+	width: 5em;
+}
+
+.contextMenu {
+	position: fixed;
+	visibility: hidden;
+	border: 1px solid gray;
+	display: inline-block;
+	box-shadow: 2px 2px 2px #999999;
+	z-index: 1;
+}
+
+.contextMenu p {
+	margin: 0px;
+	padding: 5px;
+	z-index: 1;
+	background: white;
+}
+
+.contextMenu p:hover {
+	background: blue;
+	color: white;
+}
+
+@media only screen and (min-height: 20px) {
+	#gameMetrics p {
+		font-size: 20pt;
+		border-bottom: 1px solid black;
+	}
+
+	#hpContainer {
+		top: 0%;
+	}
+
+	#deckContainer {
+		top: 5%;
+	}
+
+	#trashContainer {
+		top: 10%;
+	}
+}
+
+@media only screen and (min-height: 300px) {
+	#gameMetrics p {
+		font-size: 30pt;
+		border-bottom: 3px solid black;
+	}
+
+	#hpContainer {
+		top: 0%;
+	}
+
+	#deckContainer {
+		top: 15%;
+	}
+
+	#trashContainer {
+		top: 30%;
+	}
+}
+
+@media only screen and (min-height: 600px) {
+	#gameMetrics p {
+		font-size: 40pt;
+		border-bottom: 5px solid black;
+	}
+
+	#hpContainer {
+		top: 2%;
+	}
+
+	#deckContainer {
+		top: 27%;
+	}
+
+	#trashContainer {
+		top: 52%;
+	}
+}

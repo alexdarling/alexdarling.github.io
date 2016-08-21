@@ -1,0 +1,80 @@
+<!doctype HTML>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	    <title>Baccarat Gameplay Assistant - The Cauldron</title>
+
+	    <link rel="stylesheet" href="stylesheets/styles.css">
+	    <link rel="stylesheet" href="stylesheets/github-light.css">
+	    <link rel="stylesheet" href="stylesheets/sotm-game-assistant.css">
+	    <meta name="viewport" content="width=device-width">
+	    <!--TODO: Consolidate special styling into a CSS file.-->
+	    <!--[if lt IE 9]>
+	    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<!-- Context Menus -->
+		<div class="contextMenu" id="deckContextMenu">
+			<p id="deckDraw">Draw a card</p>
+			<p id="deckReveal">Reveal top cards</p>
+			<p id="deckMill">Mill top cards</p>
+		</div>
+		<div class="contextMenu" id="hpContextMenu">
+			<p id="hpGain">Increase HP</p>
+			<p id="hpLoss">Decrease HP</p>
+			<p id="hpSet">Set HP</p>
+		</div>
+		<div class="contextMenu" id="trashContextMenu">
+			<p id="trashLook">Look at trash</p>
+			<p id="trashShuffle">Shuffle trash into deck</p>
+			<p id="trashDuplicates">List of duplicate cards</p>
+		</div>
+
+		<!-- Interstitial Menu -->
+		<div class="interstitial" id="cardInterstitial">
+			<h2>PLACEHOLDER_INTERSTITIAL_TITLE</h2>
+			<div id="cIContent">
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>x3</p>
+				</div>
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>x2</p>
+				</div>
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>first</p>
+				</div>
+			</div>
+			<div id="cIOptions">
+				<input type="number" id="numberSelection"/>
+				<input type="button" id="submitNumberSelection" value="Submit"/>
+			</div>
+			<input id="closeInterstitial" type="button" value="Close"/>
+		</div>
+		<div id="interstitialVeil"></div>
+
+		<!-- Game Content -->
+		<div id="personalBoardState">
+			<img src="baccarat-cards/deck-back.jpg" id="heroCard">
+			<div id="gameMetrics">
+				<div id="hpContainer">
+					<p>HP: <span id="hp">27</span></p>
+				</div>
+				<div id="deckContainer">
+					<p>Deck: <span id="deck">40</span></p>
+				</div>
+				<div id="trashContainer">
+					<p>Trash: <span id="trash">0</span></p>
+				</div>
+			</div>
+			<div id="aces"></div>
+			<div id="stack"></div>
+		</div>
+		<div id="hand"></div>
+	<script src="javascripts/playBaccarat.js"></script>
+	</body>
+</html>
