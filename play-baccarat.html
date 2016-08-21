@@ -15,7 +15,49 @@
 	    <![endif]-->
 	</head>
 	<body>
-		<!-- VISUAL ELEMENTS -->
+		<!-- Context Menus -->
+		<div class="contextMenu" id="deckContextMenu">
+			<p id="deckDraw">Draw a card</p>
+			<p id="deckReveal">Reveal top cards</p>
+			<p id="deckMill">Mill top cards</p>
+		</div>
+		<div class="contextMenu" id="hpContextMenu">
+			<p id="hpGain">Increase HP</p>
+			<p id="hpLoss">Decrease HP</p>
+			<p id="hpSet">Set HP</p>
+		</div>
+		<div class="contextMenu" id="trashContextMenu">
+			<p id="trashLook">Look at trash</p>
+			<p id="trashShuffle">Shuffle trash into deck</p>
+			<p id="trashDuplicates">List of duplicate cards</p>
+		</div>
+
+		<!-- Interstitial Menu -->
+		<div class="interstitial" id="cardInterstitial">
+			<h2>PLACEHOLDER_INTERSTITIAL_TITLE</h2>
+			<div id="cIContent">
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>x3</p>
+				</div>
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>x2</p>
+				</div>
+				<div class="notation">
+					<img src="baccarat-cards\baccarat-deck-back.jpg">
+					<p>first</p>
+				</div>
+			</div>
+			<div id="cIOptions">
+				<input type="number" id="numberSelection"/>
+				<input type="button" id="submitNumberSelection" value="Submit"/>
+			</div>
+			<input id="closeInterstitial" type="button" value="Close"/>
+		</div>
+		<div id="interstitialVeil"></div>
+
+		<!-- Game Content -->
 		<div id="personalBoardState">
 			<img src="baccarat-cards/deck-back.jpg" id="heroCard">
 			<div id="gameMetrics">
@@ -34,29 +76,5 @@
 		</div>
 		<div id="hand"></div>
 	<script src="javascripts/playBaccarat.js"></script>
-
-	<!-- Context Menus -->
-	<div class="contextMenu" id="deckContextMenu">
-		<input type="button" id="deckDraw" value="Draw a card"/>
-		<br/>
-		<input type="button" id="deckReveal" value="Reveal top cards" />
-		<br/>
-		<input type="button" id="deckMill" value="Mill top cards"/>
-	</div>
-
-	<!-- Pop-Ups -->
-	<div class="contextMenu popup" id="revealTopDeck">
-		<p>How many cards do you want to reveal?</p>
-		<input id="numCards" type="number" value="1" min="1"/>
-		<input type="button" id="submitNumCards" value="Submit"/>
-		<input type="button" id="closeNumCards" value="Close"/>
-	</div>
-	<div class="contextMenu popup" id="revealedCards">
-		<p>List of revealed cards</p>
-		<ol id="revealedCardList">
-		</ol>
-		<br/>
-		<input type="button" id="closeRevealedCards" value="Replace All" />
-	</div>
 	</body>
 </html>

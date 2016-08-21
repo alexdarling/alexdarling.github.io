@@ -1,4 +1,4 @@
-body, #heroCard {
+h1, h2, p, body, #heroCard {
 	margin: 0px;
 	padding: 0px;
 }
@@ -46,26 +46,81 @@ body, #heroCard {
 	position: relative;
 }
 
-.contextMenu {
-	position: absolute;
-	visibility: hidden;
-}
-
 #numCards {
 	margin-bottom: 5%;
 	width: 3em;
 }
 
-.popup {
-	border: 3px solid #646464;
-	background-color: #c8c8c8;
-	top: 35%;
-	left: 50%;
-	text-align: center;
+#interstitialVeil {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
 }
 
-.revealedOptions {
-	
+.interstitial {
+	visibility: hidden;
+	position: absolute;
+	overflow: inherit;
+	width: 100%;
+	top: 25%;
+	height: 450px;
+	border: 3px solid #646464;
+	background-color: white;
+	text-align: center;
+	z-index: 3;
+}
+
+.interstitial h2 {
+	margin: 10px;
+}
+
+#cIContent {
+	height: 70%;
+}
+
+.notation {
+	height: 100%;
+	display: inline-block;
+}
+
+#cIContent img {
+	height: 100%;
+}
+
+#closeInterstitial {
+	font-size: 1.5em;
+	margin: 7px;
+}
+
+#cIContent {
+	padding-bottom: 5px;
+	margin-bottom: 25px;
+}
+
+#numberSelection {
+	width: 5em;
+}
+
+.contextMenu {
+	position: fixed;
+	visibility: hidden;
+	border: 1px solid gray;
+	display: inline-block;
+	box-shadow: 2px 2px 2px #999999;
+	z-index: 1;
+}
+
+.contextMenu p {
+	margin: 0px;
+	padding: 5px;
+	z-index: 1;
+	background: white;
+}
+
+.contextMenu p:hover {
+	background: blue;
+	color: white;
 }
 
 @media only screen and (min-height: 20px) {
