@@ -2,14 +2,32 @@ var hand = new Array();
 var deck = new Array();
 var trash = new Array();
 var stack = new Array();
+var revealed = new Array();
 
 function Card(image) {
 	this.image = image;
+	// this.name = name;
+}
+
+function opaque() {
+	document.getElementById('personalBoardState').style.opacity = 0.5;
+	document.getElementById('hand').style.opacity = 0.5;
+}
+
+function nopaque() {
+	document.getElementById('personalBoardState').style.opacity = 1;
+	document.getElementById('hand').style.opacity = 1;
 }
 
 function draw() {
 	hand.push(deck.pop());
 	displayHand();
+	displayDeck();
+}
+
+function mill() {
+	trash.push(deck.pop())
+	displayTrash();
 	displayDeck();
 }
 
@@ -40,10 +58,104 @@ function displayDeck() {
 	deckHTML.innerHTML = deck.length;
 }
 
+function displayDeckContextMenu() {
+	deckContextMenu = document.getElementById('deckContextMenu');
+	deckContainer = document.getElementById('deckContainer');
+	rect = deckContainer.getBoundingClientRect();
+	deckContextMenu.style.top = rect.bottom + 'px';
+	deckContextMenu.style.left = rect.left  +'px';
+	deckContextMenu.style.visibility = 'visible';
+	deckContainer.removeEventListener('click', displayDeckContextMenu);
+	deckContainer.addEventListener('click', function() {
+		deckContextMenu.style.visibility = 'hidden';
+		deckContainer.addEventListener('click', displayDeckContextMenu);
+	});
+}
+
+function displayTrashContextMenu() {
+	// TODO:
+	// 1. Look inside
+	// dldldldldldld
+}
+
+function displayHPContextMenu() {
+	// TODO:
+	// 1. Gain HP
+	// 2. Lose HP
+}
+
+function deckRevealOps() {
+	opaque();
+	document.getElementById('closeNumCards').addEventListener('click', function () {
+		document.getElementById('revealTopDeck').style.visibility = 'hidden';
+		nopaque();
+	});
+	document.getElementById('submitNumCards').addEventListener('click', function() {
+		document.getElementById('revealTopDeck').style.visibility = 'hidden';
+		revealedCards = document.getElementById('revealedCards');
+		revealedCardList = document.getElementById('revealedCardList');
+		numCards = Number(document.getElementById('numCards').value);
+		revealedCards.style.visibility = 'visible';
+		for (var i = 0; i < numCards; i++) {
+			revealed.push(deck.pop());
+		}
+		for (var i = 0; i < numCards; i++) {
+			// li = document.createElement('li');
+			// li.appendChild(document.createTextNode(revealed[i].image));
+			// b1 = document.createElement('input');
+			// b2 = document.createElement('input');
+			// b3 = document.createElement('input');
+			// b4 = document.createElement('input');
+			// b1.type = 'button';
+			// b2.type = 'button';
+			// b3.type = 'button';
+			// b4.type = 'button';
+			// b1.value = 'Top';
+			// b2.value = 'Bottom';
+			// b3.value = 'Trash';
+			// b4.value = 'Hand';
+			// b1.id = 'top' + i.toString();
+			// b2.id = 'revealToBottom';
+			// b3.id = 'revealToTrash';
+			// b4.id = 'revealToHand';
+		}
+
+		// update deck, trash, hand
+	});
+}
+
+function deckMillOps() {
+	//
+}
+
 function setUpGameState() {
 	// Adding the character card.
 	heroCard = document.getElementById('heroCard');
 	heroCard.src = 'baccarat-cards/baccarat-char-front.jpg';
+
+	// TODO: Add stack listener
+
+	// Deck Context Menu Listeners
+	deckContainer = document.getElementById('deckContainer');
+	deckDraw = document.getElementById('deckDraw');
+	deckReveal = document.getElementById('deckReveal');
+	deckMill = document.getElementById('deckMill');
+	deckContainer.addEventListener('click', displayDeckContextMenu);
+	deckDraw.addEventListener('click', function () {
+		draw();
+		deckContextMenu.style.visibility = 'hidden';
+		deckContainer.addEventListener('click', displayDeckContextMenu);
+	});
+	deckReveal.addEventListener('click', deckRevealOps);
+	deckMill.addEventListener('click', deckMillOps);
+
+	// Trash Context Menu Listeners
+	trashContainer = document.getElementById('trashContainer');
+	trashContainer.addEventListener('click', displayTrashContextMenu);
+
+	// HP Context Menu Listeners
+	hpContainer = document.getElementById('hpContainer');
+	hpContainer.addEventListener('click', displayHPContextMenu);
 
 	// Creating the deck list so we can populate the deck.
 	decklist = new Array();

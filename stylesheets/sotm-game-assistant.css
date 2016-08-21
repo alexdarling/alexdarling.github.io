@@ -29,20 +29,10 @@ body, #heroCard {
 	top: 5%;
 }
 
-img {
-	border-radius: 5%/5%;
-}
-
 #heroCard, #gameMetrics, #stack, #aces{
 	float: left;
 	height: 100%;
 	margin-right: 1%;
-}
-
-.placeholder {
-	height: 80%;
-	position: relative;
-	top: 10%;
 }
 
 #gameMetrics p {
@@ -54,6 +44,28 @@ img {
 
 #hpContainer, #deckContainer, #trashContainer{
 	position: relative;
+}
+
+.contextMenu {
+	position: absolute;
+	visibility: hidden;
+}
+
+#numCards {
+	margin-bottom: 5%;
+	width: 3em;
+}
+
+.popup {
+	border: 3px solid #646464;
+	background-color: #c8c8c8;
+	top: 35%;
+	left: 50%;
+	text-align: center;
+}
+
+.revealedOptions {
+	
 }
 
 @media only screen and (min-height: 20px) {
