@@ -1,0 +1,17 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "description": "",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "alexdarling.github.io",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
